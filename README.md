@@ -1,7 +1,7 @@
 # Receipt Classifier in Python  
 - - - - 
  
-This application recognizes whether a receipt belongs to a specific store (Walmart). It pre-processes image using OpenCV python library cv2, extracts the text from processed image and then uses supervised SVC (Support Vector Classifier) model to classify test receipts. 
+This application recognizes whether a receipt belongs to a specific store (Walmart). It pre-processes image using OpenCV python library cv2, extracts the text from processed image using Tesseract and then uses supervised SVC (Support Vector Classifier) model to classify test receipts. 
  
 - - - - 
  
@@ -43,10 +43,11 @@ text_clf = Pipeline([('vect', CountVectorizer()),
                      ('tfidf', TfidfTransformer()),
                      ('clf', SVC(kernel='linear',probability=True)),])
 ``` 
-*CountVectorizer:* To convert text file in pipeline into a matrix of token counts. 
+
+*CountVectorizer:* To convert text file in pipeline into a matrix of token counts.  
 *TfidfTransformer:*  To scale down the impact of tokens that occur very frequently in a given corpus. 
 *probability=True:* To enable estimating class probabilities, which is being used to evaluate Prediction Score in test results. 
- 
+  
 - - - - 
  
 ## Evaluating Classification Model ## 
@@ -78,6 +79,6 @@ The class results are saved in output.csv
  
 - - - - 
  
-## Scope of Enhancements ## 
+## Scope of Future Enhancements ## 
 1. Combined image(Logo detection) + Text classification. 
 2. Fuzzy lookup and replacement of incorrect closest words. (e.g. 'almart' with 'walmart' and 'sav m ney' with 'save money').
