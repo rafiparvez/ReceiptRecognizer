@@ -42,10 +42,41 @@ Support Vector Classfiers work well for text classification because of high-dime
 text_clf = Pipeline([('vect', CountVectorizer()),
                      ('tfidf', TfidfTransformer()),
                      ('clf', SVC(kernel='linear',probability=True)),])
-```
-CountVectorizer: To convert text file in pipeline into a matrix of token counts
-TfidfTransformer:  To scale down the impact of tokens that occur very frequently in a given corpus
+``` 
+*CountVectorizer:* To convert text file in pipeline into a matrix of token counts. 
+*TfidfTransformer:*  To scale down the impact of tokens that occur very frequently in a given corpus. 
+*probability=True:* To enable estimating class probabilities, which is being used to evaluate Prediction Score in test results. 
  
 - - - - 
  
 ## Evaluating Classification Model ## 
+Cross-validation set is generated from a random sample of training data to evaluate the model. The cross-validation accuracy is measured using. 
+```
+from sklearn.metrics import classification_report as clsr
+print(clsr(y_cv, predicted, target_names=[str(i) for i in labels.classes_]))
+
+``
+
+Following are the results of model evaluation using cross-validation data. 
+```
+Model Accuracy on cross-validation set = 0.99695585997
+             precision    recall  f1-score   support
+
+      False       1.00      0.99      0.99       188
+       True       1.00      1.00      1.00       469
+
+avg / total       1.00      1.00      1.00       657
+
+``` 
+  
+- - - - 
+ 
+## Classification Prediction Results on test images ## 
+ 
+The class results are saved in output.csv 
+ 
+- - - - 
+ 
+## Scope of Enhancements ## 
+1. Combined image(Logo detection) + Text classification. 
+2. Fuzzy lookup and replacement of incorrect words closest words. (e.g. 'almart' with 'walmart')
