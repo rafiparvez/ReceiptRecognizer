@@ -1,0 +1,14 @@
+# path to store input images
+img_path: "data/img"
+
+# path to store processed images
+img_processed_path: "data/processed_img"
+
+# path to store texts from images
+text_path: "data/text"
+
+# path of training data csv
+train_csv: "data/training_data.csv"
+
+# path of test data csv
+test_csv: "data/test_data.csv"

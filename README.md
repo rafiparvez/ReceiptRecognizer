@@ -79,4 +79,4 @@ The class results are saved in output.csv
  
 ## Scope of Enhancements ## 
 1. Combined image(Logo detection) + Text classification. 
-2. Fuzzy lookup and replacement of incorrect words closest words. (e.g. 'almart' with 'walmart')
+2. Fuzzy lookup and replacement of incorrect words closest words. (e.g. 'almart' with 'walmart').
