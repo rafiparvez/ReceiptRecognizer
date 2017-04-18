@@ -55,7 +55,8 @@ Cross-validation set is generated from a random sample of training data to evalu
 from sklearn.metrics import classification_report as clsr
 print(clsr(y_cv, predicted, target_names=[str(i) for i in labels.classes_]))
 
-``
+``` 
+ 
 
 Following are the results of model evaluation using cross-validation data. 
 ```
