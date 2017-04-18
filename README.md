@@ -1,7 +1,7 @@
 # Receipt Classifier in Python  
 - - - - 
  
-This application recognizes whether a receipt belongs to a specific store (Walmart). It pre-processes image using OpenCV python library cv2, extracts the text from processed image and then uses SVC (Support Vector Classifier) to classify test receipts. 
+This application recognizes whether a receipt belongs to a specific store (Walmart). It pre-processes image using OpenCV python library cv2, extracts the text from processed image and then uses supervised SVC (Support Vector Classifier) model to classify test receipts. 
  
 - - - - 
  
@@ -28,8 +28,24 @@ Image pre-processing is being done to improve receipt image quality before extra
 ## Extracting Text from Pre-Processesed Images ## 
 
 pytesseract, Python wrapper over Tesseract OCR utility is being used to extract text from images using following command. 
-    extracted_str = image_to_string(Image.open(ImgProcPath), lang="eng", config="-psm 1") 
+```
+extracted_str = image_to_string(Image.open(ImgProcPath), lang="eng", config="-psm 1")
+``` 
  
 - - - - 
  
 ## Building Classification Model ## 
+
+Support Vector Classfiers work well for text classification because of high-dimensional nature of text documents and robust performance of SVMs in high-feature space. Linear kernel has been used here to speed up training the model and simply requirement of model tuning parameters. 
+
+```
+text_clf = Pipeline([('vect', CountVectorizer()),
+                     ('tfidf', TfidfTransformer()),
+                     ('clf', SVC(kernel='linear',probability=True)),])
+```
+CountVectorizer: To convert text file in pipeline into a matrix of token counts
+TfidfTransformer:  To scale down the impact of tokens that occur very frequently in a given corpus
+ 
+- - - - 
+ 
+## Evaluating Classification Model ## 
