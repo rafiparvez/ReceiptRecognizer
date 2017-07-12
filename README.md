@@ -58,25 +58,6 @@ print(clsr(y_cv, predicted, target_names=[str(i) for i in labels.classes_]))
 
 ``` 
  
-
-Following are the results of model evaluation using cross-validation data. 
-```
-Model Accuracy on cross-validation set = 0.99695585997
-             precision    recall  f1-score   support
-
-      False       1.00      0.99      0.99       188
-       True       1.00      1.00      1.00       469
-
-avg / total       1.00      1.00      1.00       657
-
-``` 
-  
-- - - - 
- 
-## Classification Prediction Results on test images ## 
- 
-The class results are saved in output.csv 
- 
 - - - - 
  
 ## Scope of Future Enhancements ## 
